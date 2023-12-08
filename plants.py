@@ -18,4 +18,8 @@ if text == "hi":
     with open("hi.txt", "w") as f:
         print(r.json(), file=f)
 if text == "search":
-    print()
+    print(r"""
+1: common_name
+2: edible
+3: vegetable
+          """)
