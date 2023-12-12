@@ -19,7 +19,10 @@ if text == "hi":
         print(r.json(), file=f)
 if text == "search":
     print(r"""
-1: common_name
-2: edible
-3: vegetable
+1: common name
+2: genus
+3: scientific name
           """)
+    query = input("enter property to search:")
+    if query == "common name" or query == "common_name":
+        print("")
