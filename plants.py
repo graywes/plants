@@ -1,4 +1,5 @@
 import requests
+import json
 print(r"""
 Greetings, and welcome to:
   _____  _             _                  
@@ -24,7 +25,8 @@ if text == "search":
 3: scientific name
           """)
     query = input("enter property to search: ")
-    if query == "common name" or query == "common_name":
+    if query == "common name" or query == "1":
         query = input("enter common name: ")
         searched = requests.get('https://trefle.io/api/v1/plants/search?q=cocos&token=Gj6PVBkgY2x-Ix-pSKkrC6Z8g0XgirEHpwSA_Vd6pKQ')
-        print(searched.json().)
+        for j in searched.json().get("data"):
+            print(j)
