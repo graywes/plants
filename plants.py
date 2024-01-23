@@ -11,6 +11,10 @@ Greetings, and welcome to:
  |_|    |_|\__,_|_| |_|\__(_)___/_/\_\___|
       
         By Wesley Grayson
+     Commands
+         exit
+         search
+         filter
 
 Please enter command:  
       """)
@@ -34,6 +38,7 @@ if text == "search":
         searched = requests.get(search)
         for j in searched.json().get("data"):
             print(j.get("common_name"))
+        exit
     if query == "genus" or query == "2":
         query = input("how many pages?: ")
         page = input("which page to start?")
@@ -48,3 +53,10 @@ if text == "search":
         searched = requests.get(search)
         for j in searched.json().get("data"):
             print(j.get("scientific_name"))
+if text == "filter":
+    query = input("enter common name: ")
+    search = 'https://trefle.io/api/v1/plants/filter[5Bcommon_name]5D=' + query + '&token=Gj6PVBkgY2x-Ix-pSKkrC6Z8g0XgirEHpwSA_Vd6pKQ&'
+    searched = requests.get(search)
+    for j in searched.json().get("data"):
+        print(j.get("common_name"))
+    pass
